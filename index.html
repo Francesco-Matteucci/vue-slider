@@ -18,12 +18,24 @@
 </head>
 
 <body>
+    <div id="app" class="container py-5">
+        <section class="carousel-container text-center">
+            <div class="heading">
+                <!-- Qui mostrerò il titolo e la descrizione dello slide corrente -->
+                <h1>{{ currentSlide.title }}</h1>
+                <p>{{ currentSlide.text }}</p>
+            </div>
 
+            <!-- Qui mnstrerò l'immagine dello slide corrente -->
+            <div class="carousel-image">
+                <img :src="currentSlide.image" :alt="currentSlide.title" class="img-fluid rounded shadow">
+            </div>
+        </section>
+    </div>
 
-
-    <!-- Vue script -->
+    <!-- Vue Script -->
     <script src="https://unpkg.com/vue@3"></script>
-    <!-- My script -->
+    <!-- Main JS -->
     <script src="js/script.js"></script>
 </body>
 

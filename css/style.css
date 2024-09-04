@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-image img {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.heading h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.heading p {
+    font-size: 18px;
+    color: #777;
+}
