@@ -17,7 +17,7 @@
 
 <body>
     <div id="app" class="container py-5">
-        <section class="carousel-container text-center">
+        <section class="carousel-container text-center" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
             <div class="heading">
                 <!-- Qui mostrerò il titolo e la descrizione dello slide corrente -->
                 <h1>{{ currentSlide.title }}</h1>
