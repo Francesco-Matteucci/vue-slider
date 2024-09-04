@@ -67,6 +67,11 @@ createApp({
         prevSlide() {
             // Cambio lo slide corrente decrementando l'indice
             this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+        },
+
+        // Legata all'evento click dell'immagine, cambio lo slide corrente al click su una thumbnail
+        selectSlide(index) {
+            this.currentIndex = index;
         }
     }
 }).mount('#app');

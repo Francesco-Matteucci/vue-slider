@@ -28,3 +28,26 @@ body {
     width: 50px;
     height: 50px;
 }
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnail {
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail.active {
+    border-color: #007bff;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+}
