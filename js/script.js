@@ -49,8 +49,12 @@ createApp({
                     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
                 },
             ],
+
             // Imposto l'indice dello slide corrente
             currentIndex: 0,
+
+            //variabile per memorizzare l'intervallo dell'autoplay
+            autoplayInterval: null,
         };
     },
     computed: {
@@ -61,17 +65,41 @@ createApp({
     },
     methods: {
         nextSlide() {
+
             // Cambio lo slide corrente incrementando l'indice
             this.currentIndex = (this.currentIndex + 1) % this.slides.length;
         },
         prevSlide() {
+
             // Cambio lo slide corrente decrementando l'indice
             this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
         },
-
-        // Legata all'evento click dell'immagine, cambio lo slide corrente al click su una thumbnail
         selectSlide(index) {
+
+            // Legata all'evento click dell'immagine, cambio lo slide corrente al click su una thumbnail
             this.currentIndex = index;
+        },
+        startAutoplay() {
+
+            // Imposto l'autoplay con un intervallo di 3 secondi
+            this.autoplayInterval = setInterval(() => {
+                this.nextSlide();
+            }, 3000);
+        },
+        stopAutoplay() {
+
+            // Fermo l'autoplay
+            clearInterval(this.autoplayInterval);
         }
+    },
+    mounted() {
+
+        // Avvio l'autoplay quando il componente è montato
+        this.startAutoplay();
+    },
+    beforeUnmount() {
+
+        // Mi assicuro di fermare l'autoplay quando il componente viene smontato
+        this.stopAutoplay();
     }
 }).mount('#app');
