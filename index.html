@@ -26,9 +26,19 @@
                 <p>{{ currentSlide.text }}</p>
             </div>
 
-            <!-- Qui mnstrerò l'immagine dello slide corrente -->
+            <!-- Qui mostrerò l'immagine dello slide corrente -->
             <div class="carousel-image">
                 <img :src="currentSlide.image" :alt="currentSlide.title" class="img-fluid rounded shadow">
+            </div>
+
+            <!-- Bottoni per navigare tra le immagini -->
+            <div class="carousel-controls mt-3">
+                <button class="btn btn-primary me-2" @click="prevSlide">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="btn btn-primary" @click="nextSlide">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
         </section>
     </div>

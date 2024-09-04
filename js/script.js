@@ -58,5 +58,15 @@ createApp({
         currentSlide() {
             return this.slides[this.currentIndex];
         }
+    },
+    methods: {
+        nextSlide() {
+            // Cambio lo slide corrente incrementando l'indice
+            this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+        },
+        prevSlide() {
+            // Cambio lo slide corrente decrementando l'indice
+            this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+        }
     }
 }).mount('#app');

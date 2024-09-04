@@ -23,3 +23,8 @@ body {
     font-size: 18px;
     color: #777;
 }
+
+.carousel-controls button {
+    width: 50px;
+    height: 50px;
+}
