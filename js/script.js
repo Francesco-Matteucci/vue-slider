@@ -103,3 +103,5 @@ createApp({
         this.stopAutoplay();
     }
 }).mount('#app');
+
+//esercizio finito
