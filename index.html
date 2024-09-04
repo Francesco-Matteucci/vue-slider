@@ -4,52 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Vue Slider</title>
     <!-- STYLES -->
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- bootstrap style -->
+    <!-- Bootstrap style -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- main style -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div id="app" class="container py-5">
-        <section class="carousel-container text-center" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
-            <div class="heading">
-                <!-- Qui mostrerò il titolo e la descrizione dello slide corrente -->
-                <h1>{{ currentSlide.title }}</h1>
-                <p>{{ currentSlide.text }}</p>
-            </div>
+<body class="d-flex justify-content-center align-items-center">
+    <!-- Img hat di sfondo -->
+    <div class="hat-container">
+        <img id="head-main" src="img/head-body.png" alt="#">
 
-            <!-- Qui mostrerò l'immagine dello slide corrente -->
-            <div class="carousel-image">
-                <img :src="currentSlide.image" :alt="currentSlide.title" class="img-fluid rounded shadow">
-            </div>
 
-            <!-- Bottoni per navigare tra le immagini -->
-            <div class="carousel-controls mt-3">
-                <button class="btn btn-primary me-2" @click="prevSlide">
+        <div id="app" class="container py-5">
+            <div class="heading text-center my-4">
+                <img src="img/heading-line-white.png" alt="Line Divider">
+                <h1>Il Nostro Catalogo</h1>
+            </div>
+            <!-- Main carousel -->
+            <div class="carousel position-relative d-flex justify-content-center align-items-center">
+                <button class="carousel-control-prev btn d-flex justify-content-center align-items-center"
+                    aria-label="Previous" @click="prevSlide">
                     <i class="bi bi-chevron-left"></i>
                 </button>
-                <button class="btn btn-primary" @click="nextSlide">
+                <div class="carousel-inner text-center" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+                    <!-- Contenitore immagine principale -->
+                    <div class="main-image-container rounded-circle d-flex justify-content-center align-items-center">
+                        <img :src="currentSlide.image" :alt="currentSlide.title" class="main-image">
+                    </div>
+                    <div class="text-container">
+                        <h4>{{ currentSlide.title }}</h4>
+                        <p>{{ currentSlide.text }}</p>
+                    </div>
+                </div>
+                <button class="carousel-control-next btn d-flex justify-content-center align-items-center"
+                    aria-label="Next" @click="nextSlide">
                     <i class="bi bi-chevron-right"></i>
                 </button>
             </div>
 
             <!-- Thumbnails -->
-            <div class="thumbnails mt-4 d-flex justify-content-center">
-                <div v-for="(slide, index) in slides" :key="index"
-                    :class="['thumbnail', { active: currentIndex === index }]" @click="selectSlide(index)">
-                    <img :src="slide.image" :alt="slide.title" class="img-fluid">
+            <div class="thumbnails d-flex justify-content-center mt-4">
+                <div v-for="(slide, index) in slides" :key="index" class="thumbnail mx-2" @click="selectSlide(index)">
+                    <img :src="slide.image" :alt="slide.title" class="thumbnail-img rounded-circle"
+                        :class="{ active: currentIndex === index }">
                 </div>
             </div>
-
-        </section>
+            <p class="footer-logo text-end mt-4">Made with <span class="love-me text-danger">&hearts;</span> by <a
+                    href="https://github.com/Francesco-Matteucci/">Fra Emme</a></p>
+        </div>
     </div>
-
     <!-- Vue Script -->
     <script src="https://unpkg.com/vue@3"></script>
     <!-- Main JS -->

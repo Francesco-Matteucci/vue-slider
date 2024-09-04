@@ -53,7 +53,7 @@ createApp({
             // Imposto l'indice dello slide corrente
             currentIndex: 0,
 
-            //variabile per memorizzare l'intervallo dell'autoplay
+            // variabile per memorizzare l'intervallo dell'autoplay
             autoplayInterval: null,
         };
     },
